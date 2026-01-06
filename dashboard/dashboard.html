@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - FarmRent Machinery Booking</title>
+  <meta name="description" content="Manage and track all farm machinery rental bookings. View booking status and confirm reservations.">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="../homepage/index.html" class="logo">
+          <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="3"/><circle cx="7" cy="17" r="3"/><path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2"/><path d="M14 17H10"/><path d="M19 10V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5"/><path d="M5 8h14"/><path d="m18 10 2 5"/></svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">FarmRent</span>
+            <span class="logo-subtitle">Machinery Services</span>
+          </div>
+        </a>
+        
+        <nav class="nav">
+          <a href="../homepage/index.html" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="3"/><circle cx="7" cy="17" r="3"/><path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2"/><path d="M14 17H10"/><path d="M19 10V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5"/><path d="M5 8h14"/><path d="m18 10 2 5"/></svg>
+            Machines
+          </a>
+          <a href="dashboard.html" class="nav-link active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            Dashboard
+          </a>
+          <a href="../about/about.html" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            About
+          </a>
+          <a href="../contact/contact.html" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Contact
+          </a>
+          <a href="#" class="nav-link nav-logout-link" onclick="logout(); return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+            Logout
+          </a>
+        </nav>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+      
+      <nav class="mobile-nav" id="mobile-nav">
+        <a href="../homepage/index.html" class="nav-link">Machines</a>
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="../about/about.html" class="nav-link">About</a>
+        <a href="../contact/contact.html" class="nav-link">Contact</a>
+        <a href="#" class="nav-link" onclick="logout(); return false;">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dashboard Content -->
+  <main class="dashboard">
+    <div class="container">
+      <div class="dashboard-header">
+        <div>
+          <h1 class="dashboard-title">Booking Dashboard</h1>
+          <p class="dashboard-subtitle">Manage and track all machinery rental bookings</p>
+        </div>
+        <div class="user-welcome" id="user-welcome">
+          <!-- User name will be inserted by JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-inner">
+            <div>
+              <p class="stat-label">Total Bookings</p>
+              <p class="stat-value" id="stat-total">0</p>
+            </div>
+            <div class="stat-icon primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-card-inner">
+            <div>
+              <p class="stat-label">Pending</p>
+              <p class="stat-value pending" id="stat-pending">0</p>
+            </div>
+            <div class="stat-icon pending">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-card-inner">
+            <div>
+              <p class="stat-label">Confirmed</p>
+              <p class="stat-value confirmed" id="stat-confirmed">0</p>
+            </div>
+            <div class="stat-icon confirmed">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-card-inner">
+            <div>
+              <p class="stat-label">Revenue</p>
+              <p class="stat-value revenue" id="stat-revenue">$0</p>
+            </div>
+            <div class="stat-icon primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="btn btn-primary filter-tab active" data-filter="all">All</button>
+        <button class="btn btn-outline filter-tab" data-filter="pending">
+          Pending
+          <span class="count" id="pending-count">0</span>
+        </button>
+        <button class="btn btn-outline filter-tab" data-filter="confirmed">
+          Confirmed
+          <span class="count" id="confirmed-count">0</span>
+        </button>
+      </div>
+      
+      <!-- Bookings List -->
+      <div class="bookings-list" id="bookings-list">
+        <!-- Bookings will be rendered by JavaScript -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../assets/js/common.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
