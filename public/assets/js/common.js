@@ -25,8 +25,8 @@ const defaultMachines = [
     type: 'tractor',
     power: '45 HP',
     capacity: '2.5 ton lifting',
-    image: '/public/images/modern_field_tractor.jpg',
-    dailyRate: 15000,
+    image: '../images/modern_field_tractor.jpg',
+    dailyRate: 4000,
     availableDates: ['2026-01-06', '2026-01-07', '2026-01-08', '2026-01-09', '2026-01-10', '2026-01-11', '2026-01-12'],
     description: 'Versatile utility tractor perfect for plowing, tilling, and general farm work. Features power steering and comfortable cabin.'
   },
@@ -36,8 +36,8 @@ const defaultMachines = [
     type: 'tractor',
     power: '65 HP',
     capacity: '4 ton lifting',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop',
-    dailyRate: 20000,
+    image: '../images/heavy_duty_tractor.jpg',
+    dailyRate: 5000,
     availableDates: ['2026-01-06', '2026-01-08', '2026-01-10', '2026-01-12', '2026-01-14'],
     description: 'Heavy-duty tractor with enhanced horsepower for demanding agricultural tasks. Ideal for large-scale operations.'
   },
@@ -47,8 +47,8 @@ const defaultMachines = [
     type: 'harvester',
     power: '350 HP',
     capacity: '12,000 L grain tank',
-    image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&auto=format&fit=crop',
-    dailyRate: 5000,
+    image: '../images/combine_harvester_pro.png',
+    dailyRate: 20000,
     availableDates: ['2026-01-07', '2026-01-08', '2026-01-09', '2026-01-15', '2026-01-16'],
     description: 'State-of-the-art combine harvester with GPS guidance and automated grain handling. Maximum efficiency for harvest season.'
   },
@@ -58,8 +58,8 @@ const defaultMachines = [
     type: 'harvester',
     power: '280 HP',
     capacity: '9,500 L grain tank',
-    image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&auto=format&fit=crop',
-    dailyRate: 4000,
+    image: '../images/harvester.jpg',
+    dailyRate: 15000,
     availableDates: ['2026-01-06', '2026-01-07', '2026-01-11', '2026-01-12', '2026-01-13'],
     description: 'Reliable combine harvester with excellent fuel efficiency. Perfect for medium to large farms.'
   },
@@ -69,7 +69,7 @@ const defaultMachines = [
     type: 'seeder',
     power: 'PTO driven',
     capacity: '24-row precision',
-    image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&auto=format&fit=crop',
+    image: '../images/filed_plowing_equipment.jpg',
     dailyRate: 3000,
     availableDates: ['2026-01-06', '2026-01-07', '2026-01-08', '2026-01-09', '2026-01-10', '2026-01-11'],
     description: 'Precision seeder with variable rate technology. Ensures optimal seed placement and spacing for maximum yield.'
@@ -80,7 +80,7 @@ const defaultMachines = [
     type: 'seeder',
     power: 'PTO driven',
     capacity: '18-row standard',
-    image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&auto=format&fit=crop',
+    image: '../images/specialized_seeder.jpeg',
     dailyRate: 2000,
     availableDates: ['2026-01-08', '2026-01-09', '2026-01-10', '2026-01-14', '2026-01-15', '2026-01-16'],
     description: 'Economical seeder option for small to medium farms. Easy to operate and maintain.'
@@ -102,7 +102,7 @@ const icons = {
   mapPin: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>`,
   gauge: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>`,
   package: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
-  dollar: `<svg fill="#000000" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="M18,7H15.79a5.49,5.49,0,0,0-1-2H18a1,1,0,0,0,0-2H7A1,1,0,0,0,7,5h3.5a3.5,3.5,0,0,1,3.15,2H7A1,1,0,0,0,7,9h7a3.5,3.5,0,0,1-3.45,3H7a.7.7,0,0,0-.14,0,.65.65,0,0,0-.2,0,.69.69,0,0,0-.19.1l-.12.07,0,0a.75.75,0,0,0-.14.17,1.1,1.1,0,0,0-.09.14.61.61,0,0,0,0,.18A.65.65,0,0,0,6,13s0,0,0,0a.7.7,0,0,0,0,.14.65.65,0,0,0,0,.2.69.69,0,0,0,.1.19s0,.08.07.12l6,7a1,1,0,0,0,1.52-1.3L9.18,14H10.5A5.5,5.5,0,0,0,16,9h2a1,1,0,0,0,0-2Z"/></svg>`,
+  rupees: `<svg fill="#000000" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="M18,7H15.79a5.49,5.49,0,0,0-1-2H18a1,1,0,0,0,0-2H7A1,1,0,0,0,7,5h3.5a3.5,3.5,0,0,1,3.15,2H7A1,1,0,0,0,7,9h7a3.5,3.5,0,0,1-3.45,3H7a.7.7,0,0,0-.14,0,.65.65,0,0,0-.2,0,.69.69,0,0,0-.19.1l-.12.07,0,0a.75.75,0,0,0-.14.17,1.1,1.1,0,0,0-.09.14.61.61,0,0,0,0,.18A.65.65,0,0,0,6,13s0,0,0,0a.7.7,0,0,0,0,.14.65.65,0,0,0,0,.2.69.69,0,0,0,.1.19s0,.08.07.12l6,7a1,1,0,0,0,1.52-1.3L9.18,14H10.5A5.5,5.5,0,0,0,16,9h2a1,1,0,0,0,0-2Z"/></svg>`,
   shield: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>`,
   check: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>`,
   x: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>`,
@@ -271,7 +271,7 @@ function logout() {
  * @returns {string} Formatted date string
  */
 function formatDate(dateStr) {
-  return new Date(dateStr).toLocaleDateString('en-US', {
+  return new Date(dateStr).toLocaleDateString('en-IN', {
     weekday: 'short',
     month: 'short',
     day: 'numeric'
@@ -284,7 +284,7 @@ function formatDate(dateStr) {
  * @returns {string} Formatted date string
  */
 function formatFullDate(dateStr) {
-  return new Date(dateStr).toLocaleDateString('en-US', {
+  return new Date(dateStr).toLocaleDateString('en-IN', {
     weekday: 'short',
     month: 'short',
     day: 'numeric',

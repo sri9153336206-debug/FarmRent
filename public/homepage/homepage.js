@@ -63,7 +63,7 @@ function renderMachines() {
         </div>
         <div class="card-footer">
           <div class="card-price">
-            ${icons.dollar}
+            ${icons.rupees}
             <span class="amount">${machine.dailyRate}</span>
             <span class="period">/day</span>
           </div>
@@ -173,7 +173,7 @@ function openBookingModal(machineId) {
       <h4>${selectedMachine.name}</h4>
       <p>${selectedMachine.power} • ${selectedMachine.capacity}</p>
       <div class="machine-preview-price">
-        ${icons.dollar}
+        ${icons.rupees}
         <span class="amount">${selectedMachine.dailyRate}</span>
         <span class="period">/day</span>
       </div>
