@@ -24,7 +24,7 @@ const defaultMachines = [
     type: 'tractor',
     power: '45 HP',
     capacity: '2.5 ton lifting',
-    image: '/images/modern_field_tractor.jpg',
+    image: '../images/modern_field_tractor.jpg',
     dailyRate: 400,
     availableDates: ['2026-01-06', '2026-01-07', '2026-01-08', '2026-01-09', '2026-01-10', '2026-01-11', '2026-01-12'],
     description: 'Versatile utility tractor perfect for plowing, tilling, and general farm work. Features power steering and comfortable cabin.'
@@ -35,7 +35,7 @@ const defaultMachines = [
     type: 'tractor',
     power: '65 HP',
     capacity: '4 ton lifting',
-    image: '/images/heavy_duty_tractor.jpg',
+    image: '../images/heavy_duty_tractor.jpg',
     dailyRate: 500,
     availableDates: ['2026-01-06', '2026-01-08', '2026-01-10', '2026-01-12', '2026-01-14'],
     description: 'Heavy-duty tractor with enhanced horsepower for demanding agricultural tasks. Ideal for large-scale operations.'
@@ -46,7 +46,7 @@ const defaultMachines = [
     type: 'harvester',
     power: '350 HP',
     capacity: '12,000 L grain tank',
-    image: '/images/combine_harvester_pro.png',
+    image: '../images/combine_harvester_pro.png',
     dailyRate: 1500,
     availableDates: ['2026-01-07', '2026-01-08', '2026-01-09', '2026-01-15', '2026-01-16'],
     description: 'State-of-the-art combine harvester with GPS guidance and automated grain handling. Maximum efficiency for harvest season.'
@@ -57,7 +57,7 @@ const defaultMachines = [
     type: 'harvester',
     power: '280 HP',
     capacity: '9,500 L grain tank',
-    image: '/images/harvester.jpg',
+    image: '../images/harvester.jpg',
     dailyRate: 1000,
     availableDates: ['2026-01-06', '2026-01-07', '2026-01-11', '2026-01-12', '2026-01-13'],
     description: 'Reliable combine harvester with excellent fuel efficiency. Perfect for medium to large farms.'
@@ -68,7 +68,7 @@ const defaultMachines = [
     type: 'seeder',
     power: 'PTO driven',
     capacity: '24-row precision',
-    image: '/images/filed_plowing_equipment.jpg',
+    image: '../images/filed_plowing_equipment.jpg',
     dailyRate: 300,
     availableDates: ['2026-01-06', '2026-01-07', '2026-01-08', '2026-01-09', '2026-01-10', '2026-01-11'],
     description: 'Precision seeder with variable rate technology. Ensures optimal seed placement and spacing for maximum yield.'
@@ -79,7 +79,7 @@ const defaultMachines = [
     type: 'seeder',
     power: 'PTO driven',
     capacity: '18-row standard',
-    image: '/images/specialized_seeder.jpeg',
+    image: '../images/specialized_seeder.jpeg',
     dailyRate: 200,
     availableDates: ['2026-01-08', '2026-01-09', '2026-01-10', '2026-01-14', '2026-01-15', '2026-01-16'],
     description: 'Economical seeder option for small to medium farms. Easy to operate and maintain.'
