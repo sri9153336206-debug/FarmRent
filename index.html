@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FarmRent - Farm Machinery Booking & Rental Services</title>
+  <meta name="description" content="Book premium farm machinery for rent including tractors, harvesters, and seeders. Reliable equipment for your agricultural needs.">
+  <meta name="keywords" content="farm machinery, tractor rental, harvester booking, agricultural equipment, farm equipment rental">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="FarmRent - Farm Machinery Booking & Rental">
+  <meta property="og:description" content="Book premium farm machinery for rent. Tractors, harvesters, seeders available.">
+  <meta property="og:type" content="website">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <link rel="stylesheet" href="./homepage/homepage.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="3"/><circle cx="7" cy="17" r="3"/><path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2"/><path d="M14 17H10"/><path d="M19 10V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5"/><path d="M5 8h14"/><path d="m18 10 2 5"/></svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">FarmRent</span>
+            <span class="logo-subtitle">Machinery Services</span>
+          </div>
+        </a>
+        
+        <nav class="nav">
+          <a href="index.html" class="nav-link active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="3"/><circle cx="7" cy="17" r="3"/><path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2"/><path d="M14 17H10"/><path d="M19 10V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5"/><path d="M5 8h14"/><path d="m18 10 2 5"/></svg>
+            Machines
+          </a>
+          <a href="../dashboard/dashboard.html" class="nav-link nav-user-link" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            Dashboard
+          </a>
+          <a href="../admin/admin.html" class="nav-link nav-admin-link" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+            Admin
+          </a>
+          <a href="../about/about.html" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            About
+          </a>
+          <a href="../contact/contact.html" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Contact
+          </a>
+          <a href="../login/login.html" class="nav-link nav-login-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+            Login
+          </a>
+          <a href="#" class="nav-link nav-logout-link" onclick="logout(); return false;" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+            Logout
+          </a>
+        </nav>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+      
+      <nav class="mobile-nav" id="mobile-nav">
+        <a href="index.html" class="nav-link active">Machines</a>
+        <a href="../dashboard/dashboard.html" class="nav-link nav-user-link" style="display: none;">Dashboard</a>
+        <a href="../admin/admin.html" class="nav-link nav-admin-link" style="display: none;">Admin</a>
+        <a href="../about/about.html" class="nav-link">About</a>
+        <a href="../contact/contact.html" class="nav-link">Contact</a>
+        <a href="../login/login.html" class="nav-link nav-login-link">Login</a>
+        <a href="#" class="nav-link nav-logout-link" onclick="logout(); return false;" style="display: none;">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1920&auto=format&fit=crop" alt="Farm machinery in golden wheat field">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Premium Farm Machinery
+          <span>Rental Services</span>
+        </h1>
+        <p class="hero-text">
+          Access top-quality tractors, harvesters, and seeders for your agricultural needs. 
+          Flexible booking, reliable equipment.
+        </p>
+        <button class="btn btn-accent btn-xl" onclick="scrollToMachines()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="3"/><circle cx="7" cy="17" r="3"/><path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2"/><path d="M14 17H10"/><path d="M19 10V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5"/><path d="M5 8h14"/><path d="m18 10 2 5"/></svg>
+          Browse Equipment
+        </button>
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            <span>Insured Equipment</span>
+          </div>
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>24/7 Support</span>
+          </div>
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="3"/><circle cx="7" cy="17" r="3"/><path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2"/><path d="M14 17H10"/><path d="M19 10V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5"/><path d="M5 8h14"/><path d="m18 10 2 5"/></svg>
+            <span>Well-Maintained Fleet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Machines Section -->
+  <section class="machines-section" id="machines-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Available Equipment</h2>
+        <p class="section-text">Browse our fleet of well-maintained farm machinery ready for your agricultural operations</p>
+      </div>
+      
+      <div class="filter-bar">
+        <button class="btn btn-primary filter-btn active" data-filter="all">
+          All Machines
+          <span class="count">6</span>
+        </button>
+        <button class="btn btn-outline filter-btn" data-filter="tractor">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="3"/><circle cx="7" cy="17" r="3"/><path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2"/><path d="M14 17H10"/><path d="M19 10V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5"/><path d="M5 8h14"/><path d="m18 10 2 5"/></svg>
+          Tractors
+          <span class="count">2</span>
+        </button>
+        <button class="btn btn-outline filter-btn" data-filter="harvester">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          Harvesters
+          <span class="count">2</span>
+        </button>
+        <button class="btn btn-outline filter-btn" data-filter="seeder">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/></svg>
+          Seeders
+          <span class="count">2</span>
+        </button>
+      </div>
+      
+      <div class="machines-grid" id="machines-grid">
+        <!-- Machines will be rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 FarmRent. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal-backdrop" id="booking-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Book Equipment</h3>
+        <p class="modal-subtitle">Fill in your details to reserve this equipment</p>
+      </div>
+      <form id="booking-form">
+        <div class="modal-body">
+          <div class="machine-preview" id="machine-preview">
+            <!-- Machine preview will be rendered by JavaScript -->
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+              Select Date
+            </label>
+            <select class="form-select" id="booking-date" required>
+              <option value="">Choose an available date</option>
+            </select>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Start Time
+              </label>
+              <input type="time" class="form-input" id="start-time" value="08:00" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">End Time</label>
+              <input type="time" class="form-input" id="end-time" value="17:00" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Full Name
+            </label>
+            <input type="text" class="form-input" id="farmer-name" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              Email Address
+            </label>
+            <input type="email" class="form-input" id="farmer-email" placeholder="your@email.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Phone Number
+            </label>
+            <input type="tel" class="form-input" id="farmer-phone" placeholder="+91 9876543210" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              Farm Location
+            </label>
+            <input type="text" class="form-input" id="farm-location" placeholder="Farm address or location" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeBookingModal()">Cancel</button>
+          <button type="submit" class="btn btn-accent">Submit Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/common.js"></script>
+  <script src="./homepage/homepage.js"></script>
+</body>
+</html>
