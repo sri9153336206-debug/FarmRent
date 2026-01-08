@@ -55,14 +55,16 @@ function renderMachines() {
         </div>
         <div class="card-footer">
           <div class="card-price">
-            ${icons.rupees}
+            <span class="currency-symbol">₹</span>
             <span class="amount">${machine.dailyRate}</span>
             <span class="period">/hour</span>
           </div>
-          <button class="btn btn-accent" ${!hasAvailability ? 'disabled' : ''} 
+          ${!isAdmin() ? `
+          <button class="btn btn-accent book-btn" ${!hasAvailability ? 'disabled' : ''}
                   onclick="handleBookClick('${machine.id}')">
             ${icons.calendar} Book Now
           </button>
+          ` : ''}
         </div>
       </div>
     `;
@@ -157,7 +159,7 @@ function openBookingModal(machineId) {
       <h4>${selectedMachine.name}</h4>
       <p>${selectedMachine.power} • ${selectedMachine.capacity}</p>
       <div class="machine-preview-price">
-        ${icons.rupees}
+        <span class="currency-symbol">₹</span>
         <span class="amount">${selectedMachine.dailyRate}</span>
         <span class="period">/hour</span>
       </div>
@@ -273,4 +275,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial render
   renderMachines();
   updateFilterCounts();
+   // Apply role-based UI
+  applyRoleBasedUI();
 });
+
+// Apply role-based UI rendering
+// Hides booking elements for admin users
+
+function applyRoleBasedUI() {
+  const userIsAdmin = isAdmin();
+  
+  // Update navigation visibility based on role
+  const dashboardLinks = document.querySelectorAll('a[href*="dashboard"]');
+  const adminLinks = document.querySelectorAll('.nav-admin-link');
+  
+  if (userIsAdmin) {
+    // Hide Dashboard link for admins (they use Admin Panel instead)
+    dashboardLinks.forEach(link => {
+      if (!link.href.includes('admin')) {
+        link.style.display = 'none';
+      }
+    });
+    // Show Admin link
+    adminLinks.forEach(link => link.style.display = 'flex');
+  } else if (isLoggedIn()) {
+    // Regular users: show dashboard, hide admin
+    dashboardLinks.forEach(link => link.style.display = 'flex');
+    adminLinks.forEach(link => link.style.display = 'none');
+  }
+}

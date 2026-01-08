@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Check if already logged in
   if (isLoggedIn()) {
-    window.location.href = '../dashboard/dashboard.html';
+    const user = getCurrentUser();
+    if (user.role === USER_ROLES.ADMIN) {
+      window.location.href = '../admin/admin.html';
+    } else {
+      window.location.href = '../dashboard/dashboard.html';
+    }
     return;
   }
   
@@ -39,9 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
       
       showToast('Login successful! Welcome back, ' + user.firstName);
       
-      // Redirect to dashboard after short delay
+      // Redirect based on role after short delay
       setTimeout(() => {
-        window.location.href = '../dashboard/dashboard.html';
+        if (user.role === USER_ROLES.ADMIN) {
+          window.location.href = '../admin/admin.html';
+        } else {
+          window.location.href = '../dashboard/dashboard.html';
+        }
       }, 1000);
     } else {
       showToast('Invalid email or password. Please try again.', 'error');

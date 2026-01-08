@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - FarmRent Machinery Booking</title>
-  <meta name="description" content="Manage and track all farm machinery rental bookings. View booking status and confirm reservations.">
+  <title>Admin Panel - FarmRent Machinery Booking</title>
+  <meta name="description" content="Admin dashboard to manage all farm machinery bookings. Confirm or cancel reservations.">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../assets/css/common.css">
-  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="admin.css">
 </head>
 <body>
   <!-- Header -->
-  <header class="header">
+  <header class="header admin-header">
     <div class="container">
       <div class="header-inner">
         <a href="../homepage/index.html" class="logo">
@@ -22,7 +22,7 @@
           </div>
           <div class="logo-text">
             <span class="logo-title">FarmRent</span>
-            <span class="logo-subtitle">Machinery Services</span>
+            <span class="logo-subtitle">Admin Panel</span>
           </div>
         </a>
         
@@ -31,9 +31,9 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="3"/><circle cx="7" cy="17" r="3"/><path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2"/><path d="M14 17H10"/><path d="M19 10V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5"/><path d="M5 8h14"/><path d="m18 10 2 5"/></svg>
             Machines
           </a>
-          <a href="dashboard.html" class="nav-link active">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
-            Dashboard
+          <a href="admin.html" class="nav-link active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+            Admin Panel
           </a>
           <a href="../about/about.html" class="nav-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
@@ -56,7 +56,7 @@
       
       <nav class="mobile-nav" id="mobile-nav">
         <a href="../homepage/index.html" class="nav-link">Machines</a>
-        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="admin.html" class="nav-link active">Admin Panel</a>
         <a href="../about/about.html" class="nav-link">About</a>
         <a href="../contact/contact.html" class="nav-link">Contact</a>
         <a href="#" class="nav-link" onclick="logout(); return false;">Logout</a>
@@ -64,16 +64,20 @@
     </div>
   </header>
 
-  <!-- Dashboard Content -->
-  <main class="dashboard">
+  <!-- Admin Dashboard Content -->
+  <main class="admin-dashboard">
     <div class="container">
-      <div class="dashboard-header">
+      <div class="admin-header-section">
         <div>
-          <h1 class="dashboard-title">Booking Dashboard</h1>
-          <p class="dashboard-subtitle">Manage and track all machinery rental bookings</p>
+          <div class="admin-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+            Admin Access
+          </div>
+          <h1 class="admin-title">Booking Management</h1>
+          <p class="admin-subtitle">View and manage all bookings from all users</p>
         </div>
-        <div class="user-welcome" id="user-welcome">
-          <!-- User name will be inserted by JavaScript -->
+        <div class="admin-welcome" id="admin-welcome">
+          <!-- Admin name will be inserted by JavaScript -->
         </div>
       </div>
       
@@ -91,7 +95,7 @@
           </div>
         </div>
         
-        <div class="stat-card">
+        <div class="stat-card pending-card">
           <div class="stat-card-inner">
             <div>
               <p class="stat-label">Pending</p>
@@ -103,7 +107,7 @@
           </div>
         </div>
         
-        <div class="stat-card">
+        <div class="stat-card confirmed-card">
           <div class="stat-card-inner">
             <div>
               <p class="stat-label">Confirmed</p>
@@ -115,14 +119,38 @@
           </div>
         </div>
         
-        <div class="stat-card">
+        <div class="stat-card cancelled-card">
           <div class="stat-card-inner">
             <div>
-              <p class="stat-label">Revenue</p>
-              <p class="stat-value revenue" id="stat-revenue">$0</p>
+              <p class="stat-label">Cancelled</p>
+              <p class="stat-value cancelled" id="stat-cancelled">0</p>
+            </div>
+            <div class="stat-icon cancelled">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card revenue-card">
+          <div class="stat-card-inner">
+            <div>
+              <p class="stat-label">Total Revenue</p>
+              <p class="stat-value revenue" id="stat-revenue">₹0</p>
             </div>
             <div class="stat-icon primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <svg fill="#000000" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path d="M18,7H15.79a5.49,5.49,0,0,0-1-2H18a1,1,0,0,0,0-2H7A1,1,0,0,0,7,5h3.5a3.5,3.5,0,0,1,3.15,2H7A1,1,0,0,0,7,9h7a3.5,3.5,0,0,1-3.45,3H7a.7.7,0,0,0-.14,0,.65.65,0,0,0-.2,0,.69.69,0,0,0-.19.1l-.12.07,0,0a.75.75,0,0,0-.14.17,1.1,1.1,0,0,0-.09.14.61.61,0,0,0,0,.18A.65.65,0,0,0,6,13s0,0,0,0a.7.7,0,0,0,0,.14.65.65,0,0,0,0,.2.69.69,0,0,0,.1.19s0,.08.07.12l6,7a1,1,0,0,0,1.52-1.3L9.18,14H10.5A5.5,5.5,0,0,0,16,9h2a1,1,0,0,0,0-2Z"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card users-card">
+          <div class="stat-card-inner">
+            <div>
+              <p class="stat-label">Total Users</p>
+              <p class="stat-value" id="stat-users">0</p>
+            </div>
+            <div class="stat-icon primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
           </div>
         </div>
@@ -130,14 +158,21 @@
       
       <!-- Filter Tabs -->
       <div class="filter-tabs">
-        <button class="btn btn-primary filter-tab active" data-filter="all">All</button>
+        <button class="btn btn-primary filter-tab active" data-filter="all">All Bookings</button>
         <button class="btn btn-outline filter-tab" data-filter="pending">
+          <span class="status-dot pending"></span>
           Pending
           <span class="count" id="pending-count">0</span>
         </button>
         <button class="btn btn-outline filter-tab" data-filter="confirmed">
+          <span class="status-dot confirmed"></span>
           Confirmed
           <span class="count" id="confirmed-count">0</span>
+        </button>
+        <button class="btn btn-outline filter-tab" data-filter="cancelled">
+          <span class="status-dot cancelled"></span>
+          Cancelled
+          <span class="count" id="cancelled-count">0</span>
         </button>
       </div>
       
@@ -150,6 +185,6 @@
 
   <!-- Scripts -->
   <script src="../assets/js/common.js"></script>
-  <script src="dashboard.js"></script>
+  <script src="admin.js"></script>
 </body>
 </html>

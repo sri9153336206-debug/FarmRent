@@ -82,8 +82,57 @@
   color: hsl(142, 55%, 35%);
 }
 
-.stat-value.revenue {
+.stat-value.cancelled {
+  color: hsl(0, 65%, 50%);
+}
+
+/* User stats grid - 4 columns without revenue */
+.user-stats-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+
+@media (max-width: 1023px) {
+  .user-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .user-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.stat-icon.cancelled {
+  background: hsl(0, 60%, 90%);
+  color: hsl(0, 65%, 50%);
+}
+
+/* Status dots */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.pending {
+  background: hsl(45, 90%, 50%);
+}
+
+.status-dot.confirmed {
+  background: hsl(142, 55%, 35%);
+}
+
+.status-dot.cancelled {
+  background: hsl(0, 65%, 50%);
+}
+
+/* Currency symbol styling */
+.currency-symbol {
+  font-weight: 600;
   color: var(--primary);
+  font-size: 1.1rem;
 }
 
 .stat-icon {

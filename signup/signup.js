@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Check if already logged in
   if (isLoggedIn()) {
-    window.location.href = '../dashboard/dashboard.html';
+    const user = getCurrentUser();
+    if (user.role === USER_ROLES.ADMIN) {
+      window.location.href = '../admin/admin.html';
+    } else {
+      window.location.href = '../dashboard/dashboard.html';
+    }
     return;
   }
   
@@ -19,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const password = document.getElementById('signup-password').value;
     const confirm = document.getElementById('signup-confirm').value;
     const terms = document.getElementById('terms').checked;
+    const role = document.querySelector('input[name="role"]:checked').value;
     
     // Validate required fields
     if (!firstName || !lastName || !email || !phone || !password || !confirm) {
@@ -59,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     
-    // Create new user
+    // Create new user with role
     const newUser = {
       id: Date.now().toString(),
       firstName,
@@ -67,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       email,
       phone,
       password,
+      role: role, // 'user' or 'admin'
       createdAt: new Date().toISOString()
     };
     

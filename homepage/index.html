@@ -6,7 +6,6 @@
   <title>FarmRent - Farm Machinery Booking & Rental Services</title>
   <meta name="description" content="Book premium farm machinery for rent including tractors, harvesters, and seeders. Reliable equipment for your agricultural needs.">
   <meta name="keywords" content="farm machinery, tractor rental, harvester booking, agricultural equipment, farm equipment rental">
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
   
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="FarmRent - Farm Machinery Booking & Rental">
@@ -37,9 +36,13 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="3"/><circle cx="7" cy="17" r="3"/><path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2"/><path d="M14 17H10"/><path d="M19 10V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v5"/><path d="M5 8h14"/><path d="m18 10 2 5"/></svg>
             Machines
           </a>
-          <a href="../dashboard/dashboard.html" class="nav-link">
+          <a href="../dashboard/dashboard.html" class="nav-link nav-user-link" style="display: none;">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
             Dashboard
+          </a>
+          <a href="../admin/admin.html" class="nav-link nav-admin-link" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+            Admin
           </a>
           <a href="../about/about.html" class="nav-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
@@ -66,7 +69,8 @@
       
       <nav class="mobile-nav" id="mobile-nav">
         <a href="index.html" class="nav-link active">Machines</a>
-        <a href="../dashboard/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="../dashboard/dashboard.html" class="nav-link nav-user-link" style="display: none;">Dashboard</a>
+        <a href="../admin/admin.html" class="nav-link nav-admin-link" style="display: none;">Admin</a>
         <a href="../about/about.html" class="nav-link">About</a>
         <a href="../contact/contact.html" class="nav-link">Contact</a>
         <a href="../login/login.html" class="nav-link nav-login-link">Login</a>

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - FarmRent Machinery Booking</title>
   <meta name="description" content="Create your FarmRent account to start booking farm machinery for your agricultural needs.">
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../assets/css/common.css">
@@ -114,6 +113,40 @@
             <div class="form-group">
               <label class="form-label">Confirm Password</label>
               <input type="password" class="form-input" id="signup-confirm" placeholder="Confirm your password" required>
+            </div>
+
+            <!-- Role Selection -->
+            <div class="form-group">
+              <label class="form-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Account Type
+              </label>
+              <div class="role-selector">
+                <label class="role-option">
+                  <input type="radio" name="role" value="user" checked>
+                  <div class="role-card">
+                    <div class="role-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="role-info">
+                      <span class="role-title">User / Farmer</span>
+                      <span class="role-desc">Book machines for your farm</span>
+                    </div>
+                  </div>
+                </label>
+                <label class="role-option">
+                  <input type="radio" name="role" value="admin">
+                  <div class="role-card">
+                    <div class="role-icon admin">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <div class="role-info">
+                      <span class="role-title">Admin</span>
+                      <span class="role-desc">Manage all bookings & users</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
             </div>
             
             <div class="form-options">

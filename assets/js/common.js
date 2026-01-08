@@ -8,6 +8,13 @@ const STORAGE_KEYS = {
   MESSAGES: 'farm_messages'
 };
 
+// User Roles
+
+const USER_ROLES = {
+  USER: 'user',
+  ADMIN: 'admin'
+};
+
 // Default Machine Data
 
 const defaultMachines = [
@@ -118,7 +125,9 @@ const icons = {
   dashboard: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>`,
   info: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>`,
   send: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>`,
-  lock: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`
+  lock: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+  admin: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>`,
+  users: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
 };
 
 // Storage Functions
@@ -139,12 +148,23 @@ function getBookings() {
   return stored ? JSON.parse(stored) : [];
 }
 
+// Get bookings for a specific user
+
+function getUserBookings(userId) {
+  const bookings = getBookings();
+  return bookings.filter(b => b.userId === userId);
+}
+
+
+
 // Save a new booking to localStorage
 
 function saveBooking(machineId, formData) {
   const machines = getMachines();
   const machine = machines.find(m => m.id === machineId);
+  const currentUser = getCurrentUser();
   if (!machine) throw new Error('Machine not found');
+  if (!currentUser) throw new Error('User not logged in');
 
   const hours = calculateHours(formData.startTime, formData.endTime);
 
@@ -157,6 +177,9 @@ function saveBooking(machineId, formData) {
     machineId,
     machineName: machine.name,
     machineType: machine.type,
+    userId: currentUser.id,
+    userName: `${currentUser.firstName} ${currentUser.lastName}`,
+    userEmail: currentUser.email,
     farmerName: formData.farmerName,
     farmerEmail: formData.farmerEmail,
     farmerPhone: formData.farmerPhone,
@@ -229,6 +252,13 @@ function getCurrentUser() {
   return user ? JSON.parse(user) : null;
 }
 
+// Check if current user is an admin
+
+function isAdmin() {
+  const user = getCurrentUser();
+  return user && user.role === USER_ROLES.ADMIN;
+}
+
 // Logout current user
 
 function logout() {
@@ -298,22 +328,37 @@ function initMobileMenu() {
   }
 }
 
-// Update navigation based on login status
+// Update navigation based on login status and role
 
 function updateNavigation() {
   const user = getCurrentUser();
   const loginLinks = document.querySelectorAll('.nav-login-link');
   const logoutLinks = document.querySelectorAll('.nav-logout-link');
+  const adminLinks = document.querySelectorAll('.nav-admin-link');
+  const userLinks = document.querySelectorAll('.nav-user-link');
   const userNames = document.querySelectorAll('.nav-user-name');
   
+  // Show/hide login link
   loginLinks.forEach(link => {
     link.style.display = user ? 'none' : 'flex';
   });
   
+  // Show/hide logout link
   logoutLinks.forEach(link => {
     link.style.display = user ? 'flex' : 'none';
   });
+
+  // Show/hide admin link (only for admins)
+  adminLinks.forEach(link => {
+    link.style.display = (user && user.role === USER_ROLES.ADMIN) ? 'flex' : 'none';
+  });
+
+  // Show/hide user dashboard link (only for regular users, not admins)
+  userLinks.forEach(link => {
+    link.style.display = (user && user.role !== USER_ROLES.ADMIN) ? 'flex' : 'none';
+  });
   
+  // Update user name display
   userNames.forEach(el => {
     if (user) {
       el.textContent = user.firstName;
